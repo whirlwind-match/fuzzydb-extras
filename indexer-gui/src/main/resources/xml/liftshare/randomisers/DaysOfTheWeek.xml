@@ -1,4 +1,4 @@
-<com.wwm.postcode.indexer.internal.random.RandomMultiEnum>
-	<enumdef>DaysOfTheWeek.xml</enumdef>
+<org.fuzzydb.random.RandomMultiEnum>
+	<options>DaysOfTheWeek.xml</options>
 	<nullProportion>0</nullProportion>
-</com.wwm.postcode.indexer.internal.random.RandomMultiEnum>
+</org.fuzzydb.random.RandomMultiEnum>

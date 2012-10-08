@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import org.fuzzydb.attrs.AttributePriority;
 import org.fuzzydb.attrs.Scorer;
-import org.fuzzydb.attrs.SplitConfiguration;
 import org.fuzzydb.attrs.WWConfigHelper;
 import org.fuzzydb.attrs.WhirlwindConfiguration;
 import org.fuzzydb.attrs.XMLAliases;
@@ -20,6 +20,7 @@ import org.fuzzydb.attrs.internal.xstream.AttributeIdMapper;
 import org.fuzzydb.attrs.internal.xstream.TableToPreferenceMapConverter;
 import org.fuzzydb.attrs.internal.xstream.XmlNameMapper;
 import org.fuzzydb.client.Store;
+import org.fuzzydb.dto.attributes.OptionsSource;
 import org.fuzzydb.dto.attributes.RandomGenerator;
 import org.fuzzydb.util.DynamicRef;
 import org.fuzzydb.util.ResourcePatternProcessor;
@@ -43,8 +44,8 @@ public class XmlLoader {
     private TreeMap<String, Object> attributes;
     private TreeMap<String, EnumDefinition> enumDefs;
     private TreeMap<String, Scorer> scorers;
-    private ArrayList<String> scorerCfgs = new ArrayList<String>();
-    private TreeMap<String, SplitConfiguration> splitters;
+    private final ArrayList<String> scorerCfgs = new ArrayList<String>();
+    private TreeMap<String, AttributePriority> priorities;
     private TreeMap<String, ArrayList<?>> strategyCfgs;
     private TreeMap<String, RandomGenerator> randGenerators;
 
@@ -53,7 +54,7 @@ public class XmlLoader {
     public XmlLoader(String xmlPath, WhirlwindConfiguration conf) {
 
     	xmlPath = "classpath:" + xmlPath;
-    	
+
         final Store store = IndexerFactory.getCurrentStore();
 
         new ResourcePatternProcessor(){
@@ -66,9 +67,9 @@ public class XmlLoader {
 				WWConfigHelper.updateScorerConfig(store, stream);
 				return stream;
 			}
-        
+
         }.runWithResources(xmlPath + "/scorerconfigs/*.xml");
-        
+
         new ResourcePatternProcessor(){
 			@Override
 			protected Closeable process(Resource resource) throws IOException {
@@ -94,11 +95,11 @@ public class XmlLoader {
         // ENUMS
         // ----------------------------------------------------------------
         enumDefs = XStreamHelper.loadEnumDefs(xmlPath + "/enums/*.xml", attrDefs);
-        
+
 		for (Entry<String, EnumDefinition> entry : enumDefs.entrySet()) {
 			String strippedName = entry.getKey().substring(0, entry.getKey().length() - 4);// Strip off .xml name
 			conf.add(strippedName, entry.getValue());
-		}  
+		}
 
         // ----------------------------------------------------------------
 
@@ -115,7 +116,7 @@ public class XmlLoader {
         //        // INDEX STRATEGIES
         //        // ----------------------------------------------------------------
         //        XStream strategyXStream = new XStream();
-        //        strategyXStream.registerConverter(new XmlNameMapper<SplitConfiguration>(SplitConfiguration.class, splitters));
+        //        strategyXStream.registerConverter(new XmlNameMapper<SplitConfiguration>(SplitConfiguration.class, priorities));
         //        addScorerAliases(strategyXStream);
         //        strategyCfgs = XmlLoader.load(strategyXStream, ArrayList.class, xmlPath + "/indexstrategies/*.xml");
         // ----------------------------------------------------------------
@@ -125,6 +126,7 @@ public class XmlLoader {
         // ----------------------------------------------------------------
         XStream randXStream = new XStream();
         randXStream.registerConverter(new XmlNameMapper<EnumDefinition>(EnumDefinition.class, enumDefs));
+        randXStream.addDefaultImplementation(EnumDefinition.class, OptionsSource.class);
         randGenerators = XStreamHelper.loadResources(randXStream, RandomGenerator.class, xmlPath + "/randomisers/*.xml");
         // ----------------------------------------------------------------
 
@@ -187,8 +189,8 @@ public class XmlLoader {
         return scorers;
     }
 
-    public TreeMap<String, SplitConfiguration> getSplitters() {
-        return splitters;
+    public TreeMap<String, AttributePriority> getPriorities() {
+        return priorities;
     }
 
     public TreeMap<String, ArrayList<?>> getStrategyCfgs() {

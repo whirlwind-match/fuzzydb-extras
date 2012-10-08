@@ -3,8 +3,8 @@ package com.wwm.indexer.config;
 import java.net.MalformedURLException;
 import java.util.Map.Entry;
 
+import org.fuzzydb.attrs.AttributePriority;
 import org.fuzzydb.attrs.ManualIndexStrategy;
-import org.fuzzydb.attrs.SplitConfiguration;
 import org.fuzzydb.attrs.WhirlwindConfiguration;
 import org.fuzzydb.attrs.enums.EnumMultipleValue;
 import org.fuzzydb.attrs.internal.EnumAttributeSpec;
@@ -140,7 +140,7 @@ public class DbIndexerUpdate {
 
             ManualIndexStrategy strategy = new ManualIndexStrategy(strippedName);
             for (Object splitter : loader.getStrategyCfgs().get(strategyname)) {
-                strategy.add((SplitConfiguration) splitter);
+                strategy.add((AttributePriority) splitter);
             }
             conf.addStrategy(strategy);
         }

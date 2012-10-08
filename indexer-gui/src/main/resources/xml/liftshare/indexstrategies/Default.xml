@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ManualPriorities name="Default">
-	<BooleanSplitConfiguration>
+	<BooleanPriority>
 		<id>Gender</id>
 		<priority>1.0</priority>
-	</BooleanSplitConfiguration>
+	</BooleanPriority>
 
-	<BooleanSplitConfiguration>
+	<BooleanPriority>
 		<id>wantGender</id>
 		<priority>1.0</priority>
-	</BooleanSplitConfiguration>
+	</BooleanPriority>
 
-	<FloatSplitConfiguration>
+	<FloatPriority>
 		<id>Age</id>
 		<priority>1.0</priority>
 		<expected>35.0</expected>
-	</FloatSplitConfiguration>
+	</FloatPriority>
 	
-	<EnumExclusiveSplitConfiguration>
+	<SingleEnumPriority>
 		<id>Smoke</id>
 		<priority>1.0</priority>
 		<size>6</size>
-	</EnumExclusiveSplitConfiguration>    
+	</SingleEnumPriority>    
 
-	<EnumExclusiveSplitConfiguration>
+	<SingleEnumPriority>
 		<id>LiftType</id>
 		<priority>1.0</priority>
 		<size>6</size>
-	</EnumExclusiveSplitConfiguration>    
+	</SingleEnumPriority>    
 
-	<DimensionSplitConfiguration>
+	<DimensionPriority>
 	    <id>StartLocation</id>
 	    <priority class="org.fuzzydb.attrs.dimensions.Dimensions">
 	        <values>
@@ -51,9 +51,9 @@
 	            <float>0.0126160526</float>
 	        </values>
 	    </expected>
-	</DimensionSplitConfiguration>
+	</DimensionPriority>
 
-	<DimensionSplitConfiguration>
+	<DimensionPriority>
 	    <id>EndLocation</id>
 	    <priority class="org.fuzzydb.attrs.dimensions.Dimensions">
 	        <values>
@@ -76,5 +76,5 @@
 	            <float>0.0126160526</float>
 	        </values>
 	    </expected>
-	</DimensionSplitConfiguration>
+	</DimensionPriority>
 </ManualPriorities>
