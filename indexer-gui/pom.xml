@@ -5,9 +5,8 @@
 
 	<parent>
 		<groupId>org.fuzzydb</groupId>
-		<artifactId>fuzzydb-parent</artifactId>
 		<version>1.0.0.RC1-SNAPSHOT</version>
-        <relativePath>../fuzzydb-parent</relativePath>
+        <artifactId>org.fuzzydb.extras.aggregator</artifactId>
 	</parent>
 
 	<dependencies>
@@ -24,7 +23,6 @@
         <dependency>
             <groupId>org.fuzzydb.attrs</groupId>
             <artifactId>org.fuzzydb.attrs.compact</artifactId>
-            <version>1.0.0.RC1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.fuzzydb</groupId>
@@ -43,9 +41,9 @@
 			<id>accPack</id>
 			<dependencies>
 				<dependency>
-					<groupId>org.fuzzydb.client</groupId>
-					<artifactId>org.fuzzydb.client.server.whirlwind</artifactId>
-					<version>1.0.0.M3-SNAPSHOT</version>
+					<groupId>com.wwm.db</groupId>
+					<artifactId>com.wwm.db.server.whirlwind</artifactId>
+					<version>1.0.0.RC1-SNAPSHOT</version>
 				</dependency>
 			</dependencies>
 		</profile>

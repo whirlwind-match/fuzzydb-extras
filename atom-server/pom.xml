@@ -4,10 +4,9 @@
     <artifactId>org.fuzzydb.atom.server</artifactId>
 
     <parent>
-        <artifactId>fuzzydb-parent</artifactId>
+        <artifactId>org.fuzzydb.extras.aggregator</artifactId>
         <groupId>org.fuzzydb</groupId>
         <version>1.0.0.RC1-SNAPSHOT</version>
-        <relativePath>../fuzzydb-parent</relativePath>
     </parent>
 
     <dependencies>

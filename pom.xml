@@ -2,16 +2,27 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.fuzzydb</groupId>
     <artifactId>org.fuzzydb.extras.aggregator</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0.RC1-SNAPSHOT</version>
+
 
     <name>${project.artifactId}</name>
     <description>
 	Various extras that use fuzzydb
     </description>
     <url>http://www.fuzzydb.org</url>
+
+    <properties>
+    	<fuzzydb.version>1.0.0.RELEASE</fuzzydb.version>
+    </properties>
+
+    <parent>
+    	<groupId>org.fuzzydb</groupId>
+    	<artifactId>fuzzydb-parent</artifactId>
+    	<version>1.0.0.RELEASE</version>
+    	<relativePath></relativePath>
+    </parent>
 
     <modules>
         
@@ -166,4 +177,38 @@
         </developer>
     </developers>
 
+    <dependencyManagement>
+    	<dependencies>
+    		<dependency>
+    			<groupId>org.fuzzydb</groupId>
+    			<artifactId>org.fuzzydb.client</artifactId>
+    			<version>${fuzzydb.version}</version>
+    		</dependency>
+    		<dependency>
+    			<groupId>org.fuzzydb.attrs</groupId>
+    			<artifactId>org.fuzzydb.attrs</artifactId>
+    			<version>${fuzzydb.version}</version>
+    		</dependency>
+    		<dependency>
+    			<groupId>org.fuzzydb</groupId>
+    			<artifactId>org.fuzzydb.postcode</artifactId>
+    			<version>${fuzzydb.version}</version>
+    		</dependency>
+    		<dependency>
+    			<groupId>org.fuzzydb</groupId>
+    			<artifactId>org.fuzzydb.server</artifactId>
+    			<version>${fuzzydb.version}</version>
+    		</dependency>
+    		<dependency>
+    			<groupId>org.fuzzydb</groupId>
+    			<artifactId>org.fuzzydb.util</artifactId>
+    			<version>${fuzzydb.version}</version>
+    		</dependency>
+    		<dependency>
+    			<groupId>org.fuzzydb.attrs</groupId>
+    			<artifactId>org.fuzzydb.attrs.compact</artifactId>
+    			<version>${fuzzydb.version}</version>
+    		</dependency>
+    	</dependencies>
+    </dependencyManagement>
 </project>

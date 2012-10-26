@@ -4,10 +4,9 @@
     <artifactId>org.fuzzydb.util.gui</artifactId>
 
     <parent>
-        <artifactId>fuzzydb-parent</artifactId>
         <groupId>org.fuzzydb</groupId>
         <version>1.0.0.RC1-SNAPSHOT</version>
-        <relativePath>../fuzzydb-parent</relativePath>
+        <artifactId>org.fuzzydb.extras.aggregator</artifactId>
     </parent>
 
 </project>
