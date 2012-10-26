@@ -6,24 +6,24 @@
     <parent>
         <artifactId>org.fuzzydb.extras.aggregator</artifactId>
         <groupId>org.fuzzydb</groupId>
-        <version>1.0.0.RC1-SNAPSHOT</version>
+        <version>1.0.0.RELEASE</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>org.fuzzydb.atom</groupId>
             <artifactId>org.fuzzydb.atom</artifactId>
-            <version>1.0.0.RC1-SNAPSHOT</version>
+            <version>1.0.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.fuzzydb</groupId>
             <artifactId>org.fuzzydb.util.servlet</artifactId>
-            <version>1.0.0.RC1-SNAPSHOT</version>
+            <version>1.0.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.fuzzydb</groupId>
             <artifactId>org.fuzzydb.indexer</artifactId>
-            <version>1.0.0.RC1-SNAPSHOT</version>
+            <version>1.0.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.osgi</groupId>
