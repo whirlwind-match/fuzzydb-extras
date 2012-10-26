@@ -4,7 +4,7 @@
 
     <parent>
         <groupId>org.fuzzydb</groupId>
-        <version>1.0.0.RELEASE</version>
+        <version>1.0.1.BUILD-SNAPSHOT</version>
         <artifactId>org.fuzzydb.extras.aggregator</artifactId>
     </parent>
 
